@@ -44,9 +44,24 @@ class BookPreview extends HTMLElement {
                     padding: 1rem;
                 }
             }
+        
+            .preview_hidden {
+              dispaly :none;
+            }
+           .preview:hover {
+            background:rgba(var(--color-blue),o,05);
+           }
+           .preview__image {
+             width: 48px;
+             height:70px;
+             object-fit:cover;
+             background:grey;
+             boarder-radius:2px;
+             box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2)
+             0px 1px 1px 0px rgba(0, 0, 0, 0.1), 
+             0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+           }
 
-  
-  
   
   
   
