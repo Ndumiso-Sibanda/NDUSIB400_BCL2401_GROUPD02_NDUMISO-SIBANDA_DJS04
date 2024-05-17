@@ -64,7 +64,20 @@ class BookPreview extends HTMLElement {
            .preview__info {
             padding: 1rem;
         }
-  
+      
+        .preview__tittle{
+         margin:0 0 0.5rem;
+         font-weight: bold
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+         color:rgba(var(--color-dark), 0.8);
+        }
+
+
+
+        }
   
   
   import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
