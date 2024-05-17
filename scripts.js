@@ -1,30 +1,30 @@
 // Define the BookPreview class
 class BookPreview extends HTMLElement {
-  static get observedAttributes() {
-   return ["author", "id", "image", "title"];
+ static get observedAttributes() {
+  return ["author", "id", "image", "title"];
+ }
+ constructor() {
+  super();
+  this.attachShadow({ mode: "open" });
+ }
+
+ connectedCallback() {
+  this.render();
+ }
+
+ attributeChangedCallback(name, oldValue, newValue) {
+  if (oldValue !== newValue) {
+   this.render();
   }
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-   }
-  
-   connectedCallback() {
-    this.render();
-   }
-  
-   attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-     this.render();
-    }
-   }
-   render() {
-    const author = this.getAttribute("author");
-    const id = this.getAttribute("id");
-    const image = this.getAttribute("image");
-    const title = this.getAttribute("title");
-  
-    const template = document.createElement("template");
-    template.innerHTML = `
+ }
+ render() {
+  const author = this.getAttribute("author");
+  const id = this.getAttribute("id");
+  const image = this.getAttribute("image");
+  const title = this.getAttribute("title");
+
+  const template = document.createElement("template");
+  template.innerHTML = `
           <style>
               .preview {
                   border-width: 0;
@@ -86,10 +86,12 @@ class BookPreview extends HTMLElement {
           </div>
           </button>
           `;
-        }
-  
-  
-  import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
+  this.shadowRoot.innerHTML = "";
+  this.shadowRoot.appendChild(template.content.cloneNode(true));
+ }
+}
+
+import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 
 // Initialize global variables
 
