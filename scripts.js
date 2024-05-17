@@ -3,10 +3,42 @@ class BookPreview extends HTMLElement {
   static get observedAttributes() {
    return ["author", "id", "image", "title"];
   }
- 
-
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+   }
   
+   connectedCallback() {
+    this.render();
+   }
   
+   attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+     this.render();
+    }
+   }
+   render() {
+    const author = this.getAttribute("author");
+    const id = this.getAttribute("id");
+    const image = this.getAttribute("image");
+    const title = this.getAttribute("title");
+  
+    const template = document.createElement("template");
+    template.innerHTML = `
+          <style>
+              .preview {
+                  border-width: 0;
+                  width: 100%;
+                  font-family: Roboto, sans-serif;
+                  padding: 0.5rem 1rem;
+                  display: flex;
+                  align-items: center;
+                  cursor: pointer;
+                  text-align: left;
+                  border-radius: 8px;
+                  border: 1px solid rgba(var(--color-dark), 0.15);
+                  background: rgba(var(--color-light), 1);
+              }
   
   
   
