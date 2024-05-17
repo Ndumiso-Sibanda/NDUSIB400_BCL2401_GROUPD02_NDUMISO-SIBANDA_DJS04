@@ -1,4 +1,19 @@
-import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
+// Define the BookPreview class
+class BookPreview extends HTMLElement {
+  static get observedAttributes() {
+   return ["author", "id", "image", "title"];
+  }
+ 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 
 // Initialize global variables
 
