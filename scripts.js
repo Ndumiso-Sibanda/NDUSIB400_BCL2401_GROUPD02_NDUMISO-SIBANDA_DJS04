@@ -1,7 +1,11 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 
+// Initialize global variables
+
 let page = 1;
 let matches = books;
+
+//Utility function to create an element with innerHTML
 
 function createBookElement(book) {
  const { author, id, image, title } = book;
@@ -11,13 +15,14 @@ function createBookElement(book) {
 
  element.innerHTML = `
         <img class="preview__image" src="${image}" />
-        <div class="preview__info"> 
+        <div class="preview__info">
             <h3 class="preview__title">${title}</h3>
             <div class="preview__author">${authors[author]}</div>
         </div>
     `;
  return element;
 }
+//function that populates Genres
 
 function populateGenres() {
  const genreSelect = document.querySelector("[data-search-genres]");
@@ -29,6 +34,7 @@ function populateGenres() {
   genreSelect.appendChild(option);
  }
 }
+//function that populates Authors
 
 function populateAuthors() {
  const authorSelect = document.querySelector("[data-search-authors]");
@@ -40,6 +46,7 @@ function populateAuthors() {
   authorSelect.appendChild(option);
  }
 }
+// Function to handle theme settings
 
 const themeValue =
  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -56,6 +63,7 @@ function updateTheme(theme) {
   isNight ? "10, 10, 20" : "255, 255, 255"
  );
 }
+// Function to initialize the page with default values
 
 function updateListButton() {
  const remaining = Math.max(matches.length - page * BOOKS_PER_PAGE, 0);
@@ -63,6 +71,7 @@ function updateListButton() {
  button.innerText = `Show more (${remaining})`;
  button.disabled = remaining <= 0;
 }
+//function that renders books
 
 function renderBooks() {
  const fragment = document.createDocumentFragment();
@@ -77,6 +86,7 @@ function renderBooks() {
 
  document.querySelector("[data-list-items]").appendChild(fragment);
 }
+//function that handles show more button
 
 function handleShowMore() {
  page += 1;
@@ -90,7 +100,7 @@ function handleBookClick(event) {
  if (!previewId) return;
  const activeBook = books.find((book) => book.id === previewId);
  if (!activeBook) return;
- document.querySelector("[data-list-active]").open = false;
+ document.querySelector("[data-list-active]").open = true;
 
  document.querySelector("[data-list-blur]").src = activeBook.image;
  document.querySelector("[data-list-image]").src = activeBook.image;
@@ -101,6 +111,7 @@ function handleBookClick(event) {
  document.querySelector("[data-list-description]").innerText =
   activeBook.description;
 }
+//event listeners setup
 
 document.querySelector("[data-search-cancel]").addEventListener("click", () => {
  document.querySelector("[data-search-overlay]").open = false;
@@ -133,10 +144,11 @@ document
   event.preventDefault();
   const formData = new FormData(event.target);
   const { theme } = Object.fromEntries(formData);
-  updateTheme(themeValue);
-
-  document.querySelector("[data-settings-theme]").value = themeValue;
+  updateTheme(theme);
+  document.querySelector("[data-settings-theme]").value = theme;
  });
+
+// Function to filter books based on search critiria
 
 document
  .querySelector("[data-search-form]")
