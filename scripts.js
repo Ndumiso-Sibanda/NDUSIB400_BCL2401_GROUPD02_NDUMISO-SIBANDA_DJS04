@@ -39,7 +39,12 @@ class BookPreview extends HTMLElement {
                   border: 1px solid rgba(var(--color-dark), 0.15);
                   background: rgba(var(--color-light), 1);
               }
-  
+              @media (min-width: 60rem) {
+                .preview {
+                    padding: 1rem;
+                }
+            }
+
   
   
   
