@@ -74,7 +74,9 @@ class BookPreview extends HTMLElement {
          overflow: hidden;
          color:rgba(var(--color-dark), 0.8);
         }
-
+         .preview__author {
+         color: rgba(var(--color-dark), 0.4);
+         }
 
 
         }
