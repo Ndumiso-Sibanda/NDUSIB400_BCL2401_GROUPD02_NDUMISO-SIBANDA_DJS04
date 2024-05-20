@@ -1,43 +1,41 @@
-# DJS04 Project Brief: Book Connect - Web Components
+Here's a README that summarizes the improvements, what you learned, what you implemented, and a conclusion for the given code:
 
-Building upon your "Book Connect" project in DJS03, you will now dive into Web Components. This challenge will refine your skills in creating reusable, encapsulated, and interactive elements.
+Book Preview Component
+Overview
+This project is a book preview component that allows users to view and interact with a list of books. The component is built using JavaScript and HTML with CSS for styling. It includes features for rendering book previews, filtering books by genre and author, and handling user interactions such as clicking on a book to view more details.
 
-🚨**NOTE** Here you are to continue where you left off in DJS03. This means you must build on your abstractions and work on transforming the Book Preview functionality into a web component🚨
+Improvements
+Shadow DOM Implementation: Introduced the use of Shadow DOM in the BookPreview class to encapsulate styles and markup, ensuring that the component's styles do not interfere with the rest of the application.
 
-![alt text](image.png)
+Dynamic Rendering: Enhanced the render method to dynamically update the component's content whenever its attributes change.
 
-### Objective
-Transform the book preview functionality of the "Book Connect" application into a fully operational Web Component. Additionally, evaluate and potentially convert other parts of the application into Web Components to enhance modularity and reusability.
+Styling: Applied consistent and responsive styling using CSS to improve the user interface and user experience.
 
-### Goals
-- **Convert Book Preview to Web Component**: The main focus is to encapsulate the book preview feature into a Web Component, making it reusable and independent.
-- **Assess Other Components**: Identify other elements within the "Book Connect" app that could benefit from being converted into Web Components.
-- **Maintain Functionality**: Ensure that the application retains all its current functionalities after refactoring.
+Event Handling: Improved event handling for better user interaction, including handling clicks to show book details and managing overlay visibility.
 
-### Tasks
-1. **Understand the Existing Codebase**: Familiarise yourself with the current structure and functionality of the "Book Connect" project, focusing on the book preview feature.
-2. **Create a Web Component for Book Preview**:
-   - Encapsulate the book preview into a Web Component.
-   - Ensure that the component is self-contained, with its own HTML, CSS, and JavaScript.
-   - Test the component to ensure it works seamlessly within the app.
-3. **Identify and Convert Other Components**:
-   - Analyse the application to identify other potential components for conversion.
-   - Prioritise components based on their reusability and importance to the app.
-   - Convert the chosen elements into Web Components.
-4. **Testing and Integration**:
-   - Rigorously test the new components individually and within the context of the application.
-   - Pay special attention to interactions between components and the overall user experience.
-5. **Documentation**:
-   - Document the process of creating the Web Components.
-   - Include any challenges faced and how they were overcome.
-   - Provide a clear guide on how the components should be used within the app.
+Filtering and Searching: Implemented functions to populate genres and authors dynamically, and filter books based on search criteria.
 
-### Discussion and Reflection
-Prepare to discuss your experience with your coach, focusing on:
-- Challenges encountered while converting the book preview and other elements into Web Components.
-- The rationale behind selecting certain elements for conversion into Web Components.
-- Insights gained about the advantages and limitations of using Web Components in web development.
+What I Learned
+Shadow DOM: I learned how to use the Shadow DOM to create encapsulated components with isolated styles and markup.
 
-### Submission Guidelines
-Submit your updated "Book Connect" codebase, including all the newly created Web Components. Ensure your code is well-commented and adheres to best practices for Web Component development. Include a detailed report covering your process, challenges, and reflections on working with Web Components.
+Custom Elements: I gained experience in creating and managing custom HTML elements using the HTMLElement class and its lifecycle methods.
 
+Dynamic Attribute Handling: I improved my understanding of handling dynamic attributes and rendering content based on attribute changes.
+
+Responsive Design: I enhanced my skills in applying responsive design principles to ensure the component looks good on different screen sizes.
+
+Event Management: I learned to manage user interactions more effectively, including how to handle clicks and form submissions.
+
+Implementations
+BookPreview Class: Created a custom HTML element BookPreview with properties for author, id, image, and title. Implemented methods to handle lifecycle events and render the component.
+
+Styling: Encapsulated styles within the Shadow DOM to prevent conflicts and applied responsive design principles.
+
+Dynamic Content Rendering: Implemented a method to render the component's content based on its attributes and update the content whenever the attributes change.
+
+Event Handling: Added event listeners for various user interactions, including opening and closing overlays, submitting forms, and clicking on book previews.
+
+Filtering Functionality: Developed functions to populate genre and author dropdowns dynamically and filter books based on user input.
+
+Conclusion
+This project provided valuable insights into building encapsulated, dynamic web components using modern JavaScript features like the Shadow DOM and custom elements. By implementing these improvements, the book preview component is now more robust, responsive, and user-friendly. The project demonstrates how to create reusable and maintainable web components that can be easily integrated into larger applications.
